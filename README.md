@@ -10,7 +10,7 @@ Menu Maker est un outil en ligne permettant aux restaurateurs de créer, personn
 
 ## Description
 
-Ce projet a été développé pour Qwenta, un leader dans l'impression de supports professionnels. Il permet aux restaurateurs de gérer la création de leurs menus via une interface conviviale. Le projet est développé avec Symfony et MySQL.
+Ce projet a été développé pour Qwenta. Il permet aux restaurateurs de gérer la création de leurs menus via une interface. Le projet est développé avec Symfony et MySQL.
 
 ---
 
