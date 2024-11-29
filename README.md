@@ -5,11 +5,6 @@ Menu Maker est un outil en ligne permettant aux restaurateurs de créer, personn
 ## Table des matières
 - [Description](#description)
 - [Installation](#installation)
-- [Configuration](#configuration)
-- [Utilisation](#utilisation)
-- [Tests](#tests)
-- [Contribution](#contribution)
-- [Licences](#licences)
 
 ---
 
