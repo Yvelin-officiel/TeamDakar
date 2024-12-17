@@ -33,13 +33,27 @@ class MenuController extends AbstractController
     public function new(Request $request): Response
     {
         $menu = new Menu();
-        $form = $this->createForm(MenuType::class, $menu);
+
+        // Liste temporaire de restaurants (vous pouvez les ajouter manuellement pour le test)
+        $restaurants = [
+            ['id' => 1, 'name' => 'Restaurant A'],
+            ['id' => 2, 'name' => 'Restaurant B'],
+            ['id' => 3, 'name' => 'Restaurant C'],
+        ];
+
+        // Création du formulaire avec la liste temporaire
+        $form = $this->createForm(MenuType::class, $menu, [
+            'restaurants' => $restaurants,
+        ]);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $menu->setCreatedAt(new \DateTime());
-            $menu->setUpdatedAt(new \DateTime());
+            // Vous récupérez l'ID du restaurant sélectionné par l'utilisateur
+            $selectedRestaurant = $form->get('restaurant')->getData();
+            $menu->setRestaurantId($selectedRestaurant);  // Enregistrez l'ID du restaurant dans le menu
 
+            // Enregistrez le menu dans la base de données
             $this->entityManager->persist($menu);
             $this->entityManager->flush();
 
@@ -47,7 +61,6 @@ class MenuController extends AbstractController
         }
 
         return $this->render('menu/new.html.twig', [
-            'menu' => $menu,
             'form' => $form->createView(),
         ]);
     }
